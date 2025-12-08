@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GlowOn Spa & Beauty - Where Beauty Meets Calm. Experience luxury spa treatments, facials, hair spa, bridal makeup, and complete wellness services.">
+    <title>GlowOn Spa & Beauty - Where Beauty Meets Calm</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===================================
+           CSS RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #4a4a4a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ===================================
+           CSS VARIABLES
+        =================================== */
+        :root {
+            --primary-pink: #f4c7d4;
+            --secondary-nude: #f5e6e0;
+            --cream: #fef9f5;
+            --beige: #f0ebe5;
+            --teal: #9dc5c3;
+            --dark-text: #4a4a4a;
+            --light-text: #7a7a7a;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* ===================================
+           NAVBAR STYLES
+        =================================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary-pink), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--teal));
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-text);
+        }
+        
+        /* ===================================
+           HERO SECTION STYLES
+        =================================== */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--secondary-nude) 100%);
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            animation: floatBackground 20s ease-in-out infinite;
+        }
+        
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(244, 199, 212, 0.7) 0%, rgba(157, 197, 195, 0.6) 100%);
+        }
+        
+        @keyframes floatBackground {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 2.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-pink), var(--teal));
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-pink);
+            transform: translateY(-3px) scale(1.05);
+        }
+        
+        /* ===================================
+           SECTION STYLES
+        =================================== */
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* ===================================
+           SERVICES SECTION STYLES
+        =================================== */
+        .services {
+            background: var(--cream);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .service-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--teal);
+        }
+        
+        /* ===================================
+           PACKAGES SECTION STYLES
+        =================================== */
+        .packages {
+            background: var(--white);
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .package-card {
+            background: linear-gradient(135deg, var(--secondary-nude) 0%, var(--beige) 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .package-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--teal));
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .package-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .package-features li {
+            padding: 0.7rem 0;
+            color: var(--dark-text);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            color: var(--teal);
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+        
+        /* ===================================
+           GALLERY SECTION STYLES
+        =================================== */
+        .gallery {
+            background: var(--beige);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        
+        .gallery-item.visible {
+            animation: zoomIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(244, 199, 212, 0.9), rgba(157, 197, 195, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-caption {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        /* ===================================
+           TESTIMONIALS SECTION STYLES
+        =================================== */
+        .testimonials {
+            background: var(--white);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(244, 199, 212, 0.3);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .testimonial-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-pink), var(--teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .author-info h4 {
+            color: var(--dark-text);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* ===================================
+           CONTACT SECTION STYLES
+        =================================== */
+        .contact {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--secondary-nude) 100%);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--beige);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 3px rgba(244, 199, 212, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .info-item {
+            margin-bottom: 2rem;
+        }
+        
+        .info-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-item p {
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 250px;
+            background: var(--beige);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-style: italic;
+            margin-top: 2rem;
+        }
+        
+        /* ===================================
+           FOOTER STYLES
+        =================================== */
+        .footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary-pink), var(--teal));
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-pink);
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* ===================================
+           RESPONSIVE STYLES
+        =================================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .packages-grid,
+            .gallery-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand {
+                font-size: 1.4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===================================
+         NAVBAR
+    =================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">GlowOn Spa & Beauty</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===================================
+         HERO SECTION
+    =================================== -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>GlowOn – Where Beauty Meets Calm</h1>
+            <p>Experience the perfect blend of relaxation, premium skincare, and holistic wellness in our serene sanctuary</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                <a href="#services" class="btn btn-secondary">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SERVICES SECTION
+    =================================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Premium Services</h2>
+                <p>Indulge in our carefully curated treatments designed to rejuvenate your body, mind, and soul</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌸</div>
+                    <h3>Luxury Facial</h3>
+                    <p>Deep cleansing and rejuvenating facial treatments using premium organic products for radiant, glowing skin</p>
+                    <div class="service-price">Starting at $89</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💆‍♀️</div>
+                    <h3>Hair Spa</h3>
+                    <p>Nourishing hair treatments with scalp massage, deep conditioning, and revitalizing therapy</p>
+                    <div class="service-price">Starting at $75</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👰</div>
+                    <h3>Bridal Makeup</h3>
+                    <p>Complete bridal makeover with trial session, premium products, and personalized styling</p>
+                    <div class="service-price">Starting at $299</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💅</div>
+                    <h3>Manicure & Pedicure</h3>
+                    <p>Luxurious hand and foot care with exfoliation, massage, and perfect polish application</p>
+                    <div class="service-price">Starting at $65</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧘‍♀️</div>
+                    <h3>Body Massage</h3>
+                    <p>Therapeutic full-body massage to release tension, improve circulation, and promote deep relaxation</p>
+                    <div class="service-price">Starting at $95</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Skin Brightening</h3>
+                    <p>Advanced treatments to reduce pigmentation, even skin tone, and restore natural radiance</p>
+                    <div class="service-price">Starting at $120</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         PACKAGES SECTION
+    =================================== -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Exclusive Packages</h2>
+                <p>Choose from our specially designed packages for the ultimate pampering experience</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3>Glow Starter</h3>
+                    <div class="package-price">$149</div>
+                    <ul class="package-features">
+                        <li>Express Facial (45 min)</li>
+                        <li>Basic Manicure</li>
+                        <li>Foot Massage</li>
+                        <li>Complimentary Beverage</li>
+                        <li>Relaxing Music</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-badge">Most Popular</div>
+                    <h3>Bridal Bliss</h3>
+                    <div class="package-price">$599</div>
+                    <ul class="package-features">
+                        <li>Bridal Makeup with Trial</li>
+                        <li>Hair Styling & Setting</li>
+                        <li>Pre-Bridal Facial</li>
+                        <li>Manicure & Pedicure</li>
+                        <li>Complimentary Touch-up Kit</li>
+                        <li>On-Location Service Available</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="package-card">
+                    <h3>Full Relaxation</h3>
+                    <div class="package-price">$279</div>
+                    <ul class="package-features">
+                        <li>Full Body Massage (90 min)</li>
+                        <li>Luxury Facial Treatment</li>
+                        <li>Hair Spa with Conditioning</li>
+                        <li>Aromatherapy Session</li>
+                        <li>Herbal Tea & Snacks</li>
+                        <li>Take-home Care Kit</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         GALLERY SECTION
+    =================================== -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Gallery</h2>
+                <p>Step into our world of beauty and tranquility</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=500&q=80" alt="Spa Interior">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Serene Spa Interior</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=500&q=80" alt="Facial Treatment">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Luxury Facial Treatment</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=500&q=80" alt="Massage Room">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Relaxation Room</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=500&q=80" alt="Beauty Products">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Premium Products</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=500&q=80" alt="Manicure">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Nail Care Studio</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500&q=80" alt="Relaxation Area">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Waiting Lounge</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         TESTIMONIALS SECTION
+    =================================== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Real experiences from our valued guests</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Absolutely amazing experience! The bridal package was worth every penny. The team made me feel like a princess on my special day. Highly recommend GlowOn!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Bridal Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The most relaxing massage I've ever had. The ambiance is so peaceful and the staff is incredibly professional. This is now my monthly self-care ritual!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">E</div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Regular Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"My skin has never looked better! The facial treatments here are top-notch. The estheticians really know their craft. I'm a customer for life!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>Jessica Chen</h4>
+                            <p>Skincare Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"From the moment I walked in, I felt pampered. The attention to detail is incredible. The Full Relaxation package is pure bliss. Thank you, GlowOn!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Maria Thompson</h4>
+                            <p>Wellness Lover</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         CONTACT SECTION
+    =================================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book Your Appointment</h2>
+                <p>Ready to experience the GlowOn difference? Get in touch with us today</p>
+            </div>
+            <div class="contact-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message / Special Requests</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your preferences or any special requests"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Book Now</button>
+                </form>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>📍 Location</h3>
+                        <p>123 Serenity Lane<br>Wellness District, Beauty City<br>BC 12345</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>🕐 Working Hours</h3>
+                        <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📞 Contact</h3>
+                        <p>Phone: +1 (555) 123-4567<br>Email: hello@glowonspa.com</p>
+                    </div>
+                    <div class="map-placeholder">
+                        📍 Map Location (Replace with Google Maps embed)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         FOOTER
+    =================================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="WhatsApp">💬</a>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#packages">Packages</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 GlowOn Spa & Beauty. All rights reserved. Crafted with love and care.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================
+         JAVASCRIPT
+    =================================== -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay for cards
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.service-card, .package-card, .gallery-item, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Form submission handler
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your booking request! We will contact you shortly to confirm your appointment.');
+            contactForm.reset();
+        });
+        
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
